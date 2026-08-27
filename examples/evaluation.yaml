@@ -1,0 +1,27 @@
+name: example_evaluation
+data: example_results.csv
+output_dir: output\evaluation
+
+comparisons:
+  - experiment_a: baseline
+    experiment_b: method_a
+    metric: f1
+    test: wilcoxon
+    paired: true
+
+  - experiment_a: baseline
+    experiment_b: method_a
+    metric: accuracy
+    test: wilcoxon
+    paired: true
+
+multiple_testing:
+  method: holm
+  alpha: 0.05
+
+outputs:
+  summary_csv: true
+  summary_latex: false
+  plots:
+    - f1
+    - accuracy
